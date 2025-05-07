@@ -1,0 +1,289 @@
+:root {
+    --bg-color: #1e1e1e;
+    --card-bg-color: #2d2d2d;
+    --text-color: #e0e0e0;
+    --text-muted-color: #a0a0a0;
+    --accent-color: #009688; /* Teal */
+    --accent-color-light: #4db6ac;
+    --border-color: #444;
+    --input-bg-color: #3a3a3a;
+    --danger-color: #f44336;
+    --success-color: #4CAF50; /* Green for fully understood perhaps */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: var(--accent-color-light);
+    font-weight: 300;
+}
+
+.overall-progress-container {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: var(--card-bg-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.overall-progress-container p {
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.overall-progress-bar-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.overall-progress-bar-bg {
+    flex-grow: 1;
+    height: 25px;
+    background-color: var(--input-bg-color);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.overall-progress-bar {
+    height: 100%;
+    background-color: var(--accent-color);
+    border-radius: 12px;
+    width: 0%;
+    transition: width 0.5s ease-in-out;
+}
+
+#overallProgressText {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: var(--accent-color);
+    flex-shrink: 0;
+}
+
+.topic-list {
+    list-style: none;
+    padding: 0;
+}
+
+.topic-item {
+    background-color: var(--card-bg-color);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+
+.topic-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+.topic-header {
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 18px;
+}
+
+.topic-name {
+    font-size: 1.5em;
+    font-weight: 500;
+    color: var(--accent-color-light);
+}
+
+.topic-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.progress-section {
+    flex: 2;
+}
+
+.progress-section > label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 500;
+    color: var(--text-muted-color);
+}
+
+.progress-input-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.percentage-input {
+    width: 70px;
+    padding: 10px;
+    background-color: var(--input-bg-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    border-radius: 4px;
+    text-align: center;
+    font-size: 1em;
+    -moz-appearance: textfield; /* Firefox */
+}
+.percentage-input::-webkit-outer-spin-button,
+.percentage-input::-webkit-inner-spin-button { /* Chrome, Safari, Edge, Opera */
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.percentage-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(0, 150, 136, 0.3);
+}
+
+.progress-input-area > span {
+    font-size: 1.1em;
+    color: var(--text-muted-color);
+}
+
+.progress-bar-container {
+    flex-grow: 1;
+    height: 12px;
+    background-color: var(--input-bg-color);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: var(--accent-color);
+    border-radius: 6px;
+    transition: width 0.3s ease-in-out;
+}
+
+.checkbox-section {
+    flex: 1.5;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.control-group.checkbox-group {
+    display: flex;
+    align-items: center;
+}
+
+.control-group input[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+
+.control-group label {
+    position: relative;
+    padding-left: 35px; /* Space for custom checkbox */
+    cursor: pointer;
+    user-select: none;
+    font-size: 1em;
+    color: var(--text-muted-color);
+    transition: color 0.2s;
+}
+
+.control-group label::before { /* The box */
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--border-color);
+    background-color: var(--input-bg-color);
+    border-radius: 4px;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.control-group label::after { /* The checkmark */
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 40%; /* Adjusted for better visual centering of checkmark */
+    transform: translateY(-50%) rotate(45deg) scale(0);
+    width: 6px;
+    height: 12px;
+    border: solid var(--text-color);
+    border-width: 0 3px 3px 0;
+    transition: transform 0.2s ease-out;
+}
+
+.control-group input[type="checkbox"]:checked + label {
+    color: var(--text-color);
+}
+.control-group input[type="checkbox"]:checked + label::before {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.control-group input[type="checkbox"]:checked + label::after {
+    transform: translateY(-50%) rotate(45deg) scale(1);
+}
+
+/* Optional: Highlight fully understood/memorized */
+.topic-item.fully-mastered .topic-header {
+    border-left: 5px solid var(--success-color);
+    padding-left: 15px;
+    margin-left: -20px; /* Adjust for padding */
+}
+.topic-item.fully-mastered .topic-name {
+    color: var(--success-color);
+}
+
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+footer p {
+    font-size: 0.9em;
+    color: var(--text-muted-color);
+}
+
+@media (min-width: 768px) {
+    .topic-body {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    .checkbox-section {
+        padding-top: 35px; /* Align with progress input area roughly */
+    }
+}
