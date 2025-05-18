@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
       { id: 'endokrin-giris', name: 'Endokrin Giriş' },
       { id: 'insulin-oral', name: 'İnsülin & Oral Antidiyabetikler' },
       { id: 'estrojenler-projestinler-1', name: 'Estrojenler, Projestinler, Antiesterojenikler, Oral Kontraseptifler' },
-      { id: 'estrojenler-projestinler-2', name: 'Estrojenler, Projestinler... (Devamı/Ek)' },
       { id: 'kortikosteroidler-acth', name: 'Kortikosteroidler ve ACTH' },
       { id: 'oksitosik', name: 'Oksitosik İlaçlar' },
       { id: 'tiroid-ilaclari', name: 'Tiroid İlaçları' },
